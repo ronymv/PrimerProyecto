@@ -54,27 +54,7 @@ public class AutoregistroAction extends DispatchAction{
 	    mensaje= PcrConstantes.propiedades.getProperty("autoregistro.noExisteCuspp");
 	   }else{
 	   		
-	    // obteniendo afp del usuario 
-		   Date ahora = new Date();
-	       SimpleDateFormat formateador = new SimpleDateFormat("yyyyMM");
-	       String devengue =  formateador.format(ahora);
-	       System.out.println("devengue  actual " + devengue);
-	     
-	       UsuarioAfiliado usuarioCussp = new UsuarioAfiliado();
-	       usuarioCussp.setStrCuspp(afiliado.getCuspp());
-	       
-	       UsuarioAfiliado usuarioAfiliadoDTO = new  UsuarioAfiliado();
-	       usuarioAfiliadoDTO.setStrCuspp(afiliado.getCuspp());
-	       
-	       UsuarioAfiliadoDAO.obtenerDatosAfiliado(usuarioAfiliadoDTO,devengue);
-       	   System.out.println(" el AFP actual es ::: " + usuarioAfiliadoDTO.getStrCodAFP());
-	      
-	       // si no se pudo determinar la afp aparecera vacio
-	       if(usuarioAfiliadoDTO.getStrCodAFP() == null || usuarioAfiliadoDTO.getStrCodAFP().equals("00") || usuarioAfiliadoDTO.getStrCodAFP().equals("--")){
-	       	afiliado.setNombreAFP("");
-	       }else{
-	        String descricionAFP = UtilDAO.obtenerDecripcionAFP(usuarioAfiliadoDTO.getStrCodAFP());
-	 	    afiliado.setNombreAFP(descricionAFP);
+	  
 	        	
 	       }
 	    
